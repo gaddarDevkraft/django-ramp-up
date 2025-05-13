@@ -7,3 +7,7 @@ from django.http import JsonResponse
 def get_all_blog(request):
     blogs = Post.objects.all().values()
     return JsonResponse(list(blogs), safe=False)
+
+def get_html_file(request):
+    blogs = Post.objects.all()
+    return render(request, 'blog/test.html', {'blogs' : blogs})
